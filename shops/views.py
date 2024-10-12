@@ -22,18 +22,58 @@ def search_shops(request):
         latitude = float(request.POST.get('latitude'))
         longitude = float(request.POST.get('longitude'))
         
-        # Fetch all shops from the database
+        # fetch all shops from the database
         shops = Shop.objects.all()
 
-        # Calculate distances
+        # calculate distances
         shop_distances = []
         for shop in shops:
             distance = haversine(latitude, longitude, shop.latitude, shop.longitude)
             shop_distances.append((shop, distance))
         
-        # Sort shops by distance
+        # sort shops by distance
         sorted_shops = sorted(shop_distances, key=lambda x: x[1])
 
         return render(request, 'shops/search_results.html', {'shops': sorted_shops, 'user_lat': latitude, 'user_lon': longitude})
     
     return render(request, 'shops/search_shops.html')
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import ShopSerializer
+
+@api_view(['POST'])
+def register_shop_api(request):
+    if request.method == 'POST':
+        serializer = ShopSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .models import Shop
+from .serializers import ShopSerializer
+from .utils import haversine
+
+@api_view(['GET'])
+def search_shops_api(request):
+    try:
+        latitude = float(request.GET.get('latitude'))
+        longitude = float(request.GET.get('longitude'))
+    except (TypeError, ValueError):
+        return Response({"error": "Invalid latitude or longitude"}, status=status.HTTP_400_BAD_REQUEST)
+    
+    # fetch all shops and calculate distances
+    shops = Shop.objects.all()
+    shop_distances = []
+    for shop in shops:
+        distance = haversine(latitude, longitude, shop.latitude, shop.longitude)
+        shop_distances.append((shop, distance))
+
+    # sort by distance
+    sorted_shops = sorted(shop_distances, key=lambda x: x[1])
+    sorted_shop_data = [{'shop': ShopSerializer(shop).data, 'distance': distance} for shop, distance in sorted_shops]
+    return Response(sorted_shop_data, status=status.HTTP_200_OK)
