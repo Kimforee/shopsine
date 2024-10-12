@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Nearby Shops</h1>
+    <p>Your location: {{ user_lat }}, {{ user_lon }}</p>
+    <ul>
+        {% for shop, distance in shops %}
+            <li>
+                {{ shop.name }} - {{ distance|floatformat:2 }} km away
+            </li>
+        {% empty %}
+            <li>No shops found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
