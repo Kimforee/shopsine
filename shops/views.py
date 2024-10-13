@@ -3,6 +3,9 @@ from .forms import ShopRegistrationForm
 from .models import Shop
 from .utils import haversine
 
+def home(request):
+    return render(request, 'shops/home.html')
+
 def register_shop(request):
     if request.method == 'POST':
         form = ShopRegistrationForm(request.POST)
