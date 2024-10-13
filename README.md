@@ -2,6 +2,20 @@
 
 This is a Django project that allows shops to register with their details (name, latitude, and longitude) and lets users search for shops based on their current location using latitude and longitude. The system calculates the distance between the user's location and the registered shops using the Haversine formula and returns a sorted list of nearby shops.
 
+## Landing page
+![image](https://github.com/user-attachments/assets/e799b41a-7612-4c92-bc82-9d68196ff9b1)
+
+## Register Shop
+![image](https://github.com/user-attachments/assets/404838cf-b4d8-43e9-88e7-3c0d9ef9c6ca)
+![image](https://github.com/user-attachments/assets/713204ae-40d8-4241-a46c-2a5f7935dad6)
+
+## Search Shop
+![image](https://github.com/user-attachments/assets/166594ee-f84a-4374-9a16-72bb1cfd45bb)
+![image](https://github.com/user-attachments/assets/9b5ecd41-1b9d-4cf4-aa27-e5269f9c9271)
+
+## Rest API (DRF)
+![image](https://github.com/user-attachments/assets/649bbba0-dabe-4213-949e-d3c916d56de9)
+
 ## Features
 
 - Shop Registration: Register a shop with its name, latitude, and longitude.
