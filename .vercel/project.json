@@ -1,0 +1,7 @@
+{
+    "framework": "other",
+    "buildCommand": "echo 'Skipping Build Step'",
+    "outputDirectory": ".",
+    "pythonVersion": "3.11"
+  }
+  
