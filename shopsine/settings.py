@@ -32,7 +32,11 @@ ALLOWED_HOSTS = ["shopsine-production.up.railway.app",
                  "localhost",
                   '0.0.0.0']
 
-CSRF_TRUSTED_ORIGINS = ['https://shopsine-production.up.railway.app', ".railway.app",]
+CSRF_TRUSTED_ORIGINS = [
+    'https://shopsine-production.up.railway.app', 
+    'https://*.railway.app'  # Use wildcard for subdomains
+]
+
 
 SESSION_COOKIE_DOMAIN = 'shopsine-production.up.railway.app'
 CSRF_COOKIE_DOMAIN = 'shopsine-production.up.railway.app'
