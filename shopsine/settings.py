@@ -53,12 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shops',
     'rest_framework',
-    'drf_yasg'
+    'drf_yasg',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,6 +70,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'shopsine.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    "https://shopsine-production.up.railway.app",
+    "http://localhost:8000",
+]
 
 TEMPLATES = [
     {
