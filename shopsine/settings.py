@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-1_rd1azlzv290v(qoh85tz*)9*zv7_x50$cn4u1x=i8un-y%71
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1",
-                 ".vercel.app",
+ALLOWED_HOSTS = ["shopsine-production.up.railway.app",
+                 ".railway.app",
                  "localhost",
                   '0.0.0.0']
 
