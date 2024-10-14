@@ -1,5 +1,6 @@
 # Django Shop Registration and User Search System
 deployed link : `shopsine-production.up.railway.app/`
+example api endpoints for search : " http://shopsine-production.up.railway.app/api/search/?latitude=32.232345&longitude=32.123234 "
 
 This is a Django project that allows shops to register with their details (name, latitude, and longitude) and lets users search for shops based on their current location using latitude and longitude. The system calculates the distance between the user's location and the registered shops using the Haversine formula and returns a sorted list of nearby shops.
 
