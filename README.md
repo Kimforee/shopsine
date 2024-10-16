@@ -56,8 +56,8 @@ Make sure you have the following installed:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/django-shop-registration.git
-    cd django-shop-registration
+    git clone
+    cd shopsine
     ```
 
 2. **Set up a virtual environment:**
